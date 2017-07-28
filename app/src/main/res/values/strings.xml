@@ -7,4 +7,5 @@
     <string name="graph_desc">Grafico</string>
     <string name="calc_desc">Calculadora</string>
     <string name="savings_desc">Savings</string>
+    <string name="ok">Ok</string>
 </resources>
