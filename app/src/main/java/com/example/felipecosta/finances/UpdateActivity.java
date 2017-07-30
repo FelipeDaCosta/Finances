@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ButtonBarLayout;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ public class UpdateActivity extends AppCompatActivity implements Constants{
     private TextView desc;
     private EditText input;
     private Button okButton;
+    private Toolbar myToolbar;
 
     private boolean isGain;
 
@@ -50,7 +53,22 @@ public class UpdateActivity extends AppCompatActivity implements Constants{
                 }
             }
         });
+
+        myToolbar = (Toolbar) this.findViewById(R.id.my_toolbar_gain_or_loss);
+        this.setSupportActionBar(myToolbar);
+
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.setResult(NO_RESULT);
+                finish();
+                break;
+        }
+        return true;
+    }
 }
